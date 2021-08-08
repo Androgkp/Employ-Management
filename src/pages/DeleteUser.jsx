@@ -13,18 +13,18 @@ function CreateUser() {
     let [selectedClass, setSelectedClass]=useState("None")
 
 
-    let [location, setLocation]=useState([]);
+    let [location]=useState([]);
 
 
     useEffect(()=>{
-        axios.get("https://sleepy-headland-99190.herokuapp.com" +"/locationSearchFromDatabase")
+        axios.get("https://sleepy-headland-99190.herokuapp.com/locationSearchFromDatabase")
         .then((response)=>{
             response.data.forEach(element => {
                 location.push(element.location);
             });
             // console.log(location);
         });
-    }, []);
+    }, );
     function handleClick(event) {
         event.preventDefault();
         let user={
@@ -36,7 +36,7 @@ function CreateUser() {
             class: selectedClass
         }
 
-        axios.post("https://sleepy-headland-99190.herokuapp.com" + "/deleteUser", user )
+        axios.post("https://sleepy-headland-99190.herokuapp.com/deleteUser", user )
         .then((response)=>{
             // console.log(response.data);
             if(response.data==="User NotFound"){
