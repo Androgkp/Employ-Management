@@ -7,7 +7,7 @@ function CreateUser() {
     let [locationArray]=useState([]);
     
     useEffect(()=>{
-        axios.get("https://sleepy-headland-99190.herokuapp.com/locationSearchFromDatabase")
+        axios.get(process.env.REACT_APP_SERVERLINK + "/locationSearchFromDatabase")
         .then((response)=>{
             response.data.forEach(element => {
                 locationArray.push(element.location);
@@ -22,9 +22,9 @@ function CreateUser() {
             location: location
         }
 
-        axios.post(process.env.SERVERLINK+"/addLocation", user )
+        axios.post( process.env.REACT_APP_SERVERLINK +  "/addLocation", user )
         .then((response)=>{
-            // console.log(response.data);
+            console.log(response.data);
         });
         
 

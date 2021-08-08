@@ -19,7 +19,7 @@ function CreateUser() {
 
 
     useEffect(()=>{
-        axios.get("https://sleepy-headland-99190.herokuapp.com/locationSearchFromDatabase")
+        axios.get(process.env.REACT_APP_SERVERLINK + "/locationSearchFromDatabase")
         .then((response)=>{
             response.data.forEach(element => {
                 location.push(element.location);
@@ -40,7 +40,7 @@ function CreateUser() {
             class: selectedClass
         }
 
-        axios.post("https://sleepy-headland-99190.herokuapp.com/customSearch", user )
+        axios.post(process.env.REACT_APP_SERVERLINK + "/customSearch", user )
         .then((response)=>{
             // console.log(response.data);
             localStorage.setItem("searchData", JSON.stringify(response.data))
