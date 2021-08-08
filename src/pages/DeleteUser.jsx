@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import serverLink from "../serverExport"
+
 import swal from "sweetalert"
 /* Reference: https://colorlib.com/etc/regform/colorlib-regform-4/ */
 function CreateUser() {
@@ -17,7 +17,7 @@ function CreateUser() {
 
 
     useEffect(()=>{
-        axios.get(serverLink+"/locationSearchFromDatabase")
+        axios.get("https://sleepy-headland-99190.herokuapp.com" +"/locationSearchFromDatabase")
         .then((response)=>{
             response.data.forEach(element => {
                 location.push(element.location);
@@ -36,7 +36,7 @@ function CreateUser() {
             class: selectedClass
         }
 
-        axios.post(serverLink+"/deleteUser", user )
+        axios.post("https://sleepy-headland-99190.herokuapp.com" + "/deleteUser", user )
         .then((response)=>{
             // console.log(response.data);
             if(response.data==="User NotFound"){

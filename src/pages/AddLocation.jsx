@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import serverLink from "../serverExport"
 /* Reference: https://colorlib.com/etc/regform/colorlib-regform-4/ */
 function CreateUser() {
     let [location, setLocation]=useState("");
     let [locationArray, setLocationArray]=useState([]);
     
     useEffect(()=>{
-        axios.get(serverLink+"/locationSearchFromDatabase")
+        axios.get("https://sleepy-headland-99190.herokuapp.com"+"/locationSearchFromDatabase")
         .then((response)=>{
             response.data.forEach(element => {
                 locationArray.push(element.location);
@@ -23,7 +22,7 @@ function CreateUser() {
             location: location
         }
 
-        axios.post(serverLink+"/addLocation", user )
+        axios.post(process.env.SERVERLINK+"/addLocation", user )
         .then((response)=>{
             // console.log(response.data);
         });
@@ -58,7 +57,7 @@ function CreateUser() {
                     <button type="submit" >Submit</button>
                 </form>
                 {/* <button onClick={()=>{
-                    axios.get(serverLink+"/locationSearchFromDatabase")
+                    axios.get(process.env.SERVERLINK+"/locationSearchFromDatabase")
                     .then((response)=>{
                         console.log(response.data);
                     });

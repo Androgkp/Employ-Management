@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 
 import swal from "sweetalert"
-import serverLink from "../serverExport"
+
 
 
 /*Reference: https://codepen.io/colorlib/pen/aaaoVJ?editors=1100 */
@@ -12,10 +12,12 @@ function LogIn(){
     let [username, setUsername]=useState("")
     let [password, setPassword]=useState("");
 
+
+
     function handleSubmit(event){
         
         event.preventDefault();
-        axios.post(serverLink+"/login", {username: username, password: password})
+        axios.post("https://sleepy-headland-99190.herokuapp.com" +"/login", {username: username, password: password})
         .then((response)=>{
             // console.log(response.data)
             if(response.data==="Success"){

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import UserCard from "../components/UserCard"
-import serverLink from "../serverExport"
+
 
 
 /* Reference: https://colorlib.com/etc/regform/colorlib-regform-4/ */
@@ -19,7 +19,7 @@ function CreateUser() {
 
 
     useEffect(()=>{
-        axios.get(serverLink+"/locationSearchFromDatabase")
+        axios.get("https://sleepy-headland-99190.herokuapp.com"+"/locationSearchFromDatabase")
         .then((response)=>{
             response.data.forEach(element => {
                 location.push(element.location);
@@ -40,7 +40,7 @@ function CreateUser() {
             class: selectedClass
         }
 
-        axios.post(serverLink+"/customSearch", user )
+        axios.post("https://sleepy-headland-99190.herokuapp.com"+"/customSearch", user )
         .then((response)=>{
             // console.log(response.data);
             localStorage.setItem("searchData", JSON.stringify(response.data))
