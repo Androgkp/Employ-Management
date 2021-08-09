@@ -15,7 +15,7 @@ function CreateUser() {
 
 
     let [location]=useState([]);
-
+    let a=1;
 
     useEffect(()=>{
         axios.get(process.env.REACT_APP_SERVERLINK + "/locationSearchFromDatabase")
@@ -25,7 +25,7 @@ function CreateUser() {
             });
             // console.log(location);
         });
-    }, );
+    },[a, location] );
     function handleClick(event) {
         event.preventDefault();
         let user={

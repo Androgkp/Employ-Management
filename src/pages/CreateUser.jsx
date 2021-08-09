@@ -12,18 +12,19 @@ function CreateUser() {
     let [selectedLocation, setSelectedLocation]=useState("None")
     let [selectedClass, setSelectedClass]=useState("None")
 
-
+    let a=1;
     let [location]=useState([]);
 
     useEffect(()=>{
         axios.get(process.env.REACT_APP_SERVERLINK + "/locationSearchFromDatabase")
         .then((response)=>{
+            
             response.data.forEach(element => {
                 location.push(element.location);
             });
             // console.log(location);
         });
-    }, );
+    },[a, location] );
     function handleClick(event) {
         event.preventDefault();
         let user={
