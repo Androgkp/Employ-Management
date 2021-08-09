@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import AddLocationIcon from '@material-ui/icons/AddLocation';
+
 /* Reference: https://colorlib.com/etc/regform/colorlib-regform-4/ */
 function CreateUser() {
     let [location, setLocation]=useState("");
@@ -45,7 +47,7 @@ function CreateUser() {
         <div className="createUser" >
             <div className="formOuter" >
                 <form className="createUserForm" onSubmit={handleClick} >
-                    <h2>Add Location</h2>
+                    <h2> <AddLocationIcon style={{ fontSize: 40}} /> Add Location</h2>
                     <input 
                         type="text"
                         onChange={(event)=>{

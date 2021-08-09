@@ -247,3 +247,32 @@ body{
 button:hover{
     cursor: pointer;
 }
+
+@media  screen and (max-width: 1068px) {
+    
+    /* Login */
+    .logInForm{
+        width: 80%;
+        height: max-content;
+    }
+    .logOutForm{
+        width: 80%;
+        height: max-content;
+    }
+
+    /* CreateUser */
+
+    .createUser{
+        width: 100%;
+    }
+    .formOuter{
+        width: 80%;
+    }
+    .formOuter input{
+        width: 100%;
+    }
+    .formOuter select{
+        width: 100%;
+    }
+
+}

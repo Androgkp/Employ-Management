@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+
 /* Reference: https://colorlib.com/etc/regform/colorlib-regform-4/ */
 function CreateUser() {
     let [fName, setFName]=useState("");
@@ -67,7 +69,7 @@ function CreateUser() {
         <div className="createUser" >
             <div className="formOuter" >
                 <form className="createUserForm" onSubmit={handleClick} >
-                    <h2>Create a new user</h2>
+                    <h2><PersonAddIcon style={{ fontSize: 35}} /> Create a new user</h2>
                     <label>First Name</label>
                     <input 
                         type="text"

@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 import swal from "sweetalert"
+import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
 /* Reference: https://colorlib.com/etc/regform/colorlib-regform-4/ */
 function CreateUser() {
     let [fName, setFName]=useState("");
@@ -76,7 +77,7 @@ function CreateUser() {
             <div className="formOuter" >
                 <form className="createUserForm" onSubmit={handleClick} >
                     {/* <h1>Deleted data cannot be recovered</h1> */}
-                    <h2> 📛 Delete user 📛</h2>
+                    <h2> <RestoreFromTrashIcon style={{ fontSize: 40}} color="secondary" /> Delete user</h2>
                     <label>First Name</label>
                     <input 
                         type="text"

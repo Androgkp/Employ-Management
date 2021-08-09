@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import UserCard from "../components/UserCard"
-
-
+import FindInPageIcon from '@material-ui/icons/FindInPage';
 
 /* Reference: https://colorlib.com/etc/regform/colorlib-regform-4/ */
 function CreateUser() {
@@ -77,7 +76,7 @@ function CreateUser() {
         <div className="createUser" >
             <div className="formOuter" >
                 <form className="createUserForm" onSubmit={handleClick} >
-                    <h2>🧭 Search User 🧭</h2>
+                    <h2> <FindInPageIcon style={{ fontSize: 40}} /> Search User</h2>
                     <label>First Name</label>
                     <input 
                         type="text"
